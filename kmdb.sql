@@ -126,3 +126,76 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+
+drop table if exists movies;
+create table movies (
+    movie_id integer primary key autoincrement,
+    movie_title text,
+    year_released integer,
+    mpaa_ratings text,
+    studio_info text
+);
+
+drop table if exists top_cast;
+create table top_cast (
+    movie_id integer,
+    actor_name text,
+    character_name text
+);
+
+INSERT INTO movies(movie_title, year_released, mpaa_ratings, studio_info)
+    VALUES ("Batman Begins", 2005,"PG-13","Warner Bros.");
+INSERT INTO movies(movie_title, year_released, mpaa_ratings, studio_info) 
+   VALUES ("The Dark Knight", 2008,"PG-13","Warner Bros.");
+INSERT INTO movies(movie_title, year_released, mpaa_ratings, studio_info) 
+   Values ("The Dark Knight Rises", 2012,"PG-13","Warner Bros.");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (1, "Christian Bale", "Bruce Wayne");
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (1, "Michael Caine", "Alfred");
+INSERT INTO top_cast (movie_id, actor_name,character_name)  
+    VALUES (1,  "Liam Neeson", "Ras Al Ghul");
+INSERT INTO top_cast (movie_id, actor_name,character_name)   
+    VALUES (1,  "Katie Holmes ", "Rachel Dawes");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (1, "Gary Oldman", "Commissioner Gordon");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (2,  "Christian Bale", "Bruce Wayne");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (2,  "Heath Ledger", "Joker");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (2,  "Aaron Eckhart", "Harvey Dent");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (2,  "Michael Caine", "Alfred");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (2, "Maggie Gyllenhaal", "Rachel Dawes");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (3,  "Christian Bale", "Bruce Wayne");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (3, "Gary Oldman", "Commissioner Gordon");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (3, "Tom Hardy", "Bane");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (3, "Joseph Gordon-Levitt", "John Blake");
+
+INSERT INTO top_cast (movie_id, actor_name,character_name)
+    VALUES (3, "Anne Hathaway", "Selina Kyle");
+
+select * from movies;
+
+select movies.movie_title, top_cast.actor_name, top_cast.character_name 
+from movies inner join top_cast 
+on movies.movie_id = top_cast.movie_id;
+
+
